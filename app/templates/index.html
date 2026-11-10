@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <h1>Task Manager</h1>
+
+    <form id="task-form">
+      <input id="title" name="title" placeholder="Título (mín. 3 caracteres)" required minlength="3" maxlength="150">
+      <textarea id="description" name="description" placeholder="Descrição (opcional)" rows="2"></textarea>
+      <button type="submit">Adicionar tarefa</button>
+      <p id="error" role="alert" hidden></p>
+    </form>
+
+    <nav id="filters">
+      <button data-filter="all" class="active">Todas</button>
+      <button data-filter="pending">Pendentes</button>
+      <button data-filter="done">Concluídas</button>
+    </nav>
+
+    <ul id="task-list"></ul>
+    <p id="empty" hidden>Nenhuma tarefa por aqui.</p>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
